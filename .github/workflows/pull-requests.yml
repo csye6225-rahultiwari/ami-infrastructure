@@ -29,8 +29,8 @@ jobs:
         command: validate
         arguments: -syntax-only # only validate syntax
         target: ami.json
+      env:  
         AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
         AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-      env:
         PACKER_LOG: 1 # enable debug log for packer
