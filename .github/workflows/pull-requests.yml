@@ -41,8 +41,8 @@ jobs:
       with:
         command: build
         arguments: "-color=false -on-error=abort"
-        target: ami.json
-        -var-file: vars.json
+        # -var-file: vars.json
+        target: ami.json vars.json
       env:  
         AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
         AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
