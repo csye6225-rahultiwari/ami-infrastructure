@@ -22,6 +22,13 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        
     # Ref: https://github.com/marketplace/actions/packer-github-actions
     - name: Validate Packer Template
       uses: hashicorp/packer-github-actions@v0.2.0
@@ -39,7 +46,7 @@ jobs:
       uses: hashicorp/packer-github-actions@v0.2.0
       with:
         command: build
-        arguments: "-color=false -on-error=abort -var-file=vars.json"
+        arguments: "-var-file=vars.json"
         target: ami.json
       env:  
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
