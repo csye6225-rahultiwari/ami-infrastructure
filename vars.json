@@ -1,4 +1,6 @@
 {
+"aws_access_key_id": "{{ env `AWS_ACCESS_KEY_ID` }}",
+"aws_secret_access_key": "{{ env `AWS_SECRET_ACCESS_KEY` }}",
 "aws_region": "us-east-1",
 "subnet_id": "subnet-0e5f98f94937f0a6e",
 "source_ami": "ami-09e67e426f25ce0d7",
