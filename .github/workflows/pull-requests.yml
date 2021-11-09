@@ -40,9 +40,8 @@ jobs:
       uses: hashicorp/packer-github-actions@v0.2.0
       with:
         command: build
-        arguemnts: "-color=false -on-error=abort"
-        target: ami.json
-        -var-file: vars.json
+        arguments: "-color=false -on-error=abort"
+        target: buildAmi.sh
       env:  
         AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
         AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
