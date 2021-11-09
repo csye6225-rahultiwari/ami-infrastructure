@@ -41,7 +41,7 @@ jobs:
       with:
         command: build
         arguments: "-color=false -on-error=abort"
-        target: buildAmi.sh
+        target: ami.json
       env:  
         AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
         AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
