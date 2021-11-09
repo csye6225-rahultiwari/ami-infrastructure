@@ -26,8 +26,9 @@ jobs:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
         
     # Ref: https://github.com/marketplace/actions/packer-github-actions
     - name: Validate Packer Template
@@ -37,8 +38,8 @@ jobs:
         arguments: "-syntax-only -var-file=vars.json" # only validate syntax
         target: ami.json
       env:  
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         PACKER_LOG: 1 # enable debug log for packer
 
@@ -49,7 +50,7 @@ jobs:
         arguments: "-var-file=vars.json"
         target: ami.json
       env:  
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         PACKER_LOG: 1 
