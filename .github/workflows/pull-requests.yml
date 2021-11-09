@@ -35,3 +35,16 @@ jobs:
         AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         PACKER_LOG: 1 # enable debug log for packer
+
+    - name: Build Custom AMI
+      uses: hashicorp/packer-github-actions@v0.2.0
+      with:
+        command: build
+        arguemnts: "-color=false -on-error=abort"
+        target: ami.json
+        -var-file: vars.json
+      env:  
+        AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+        AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        PACKER_LOG: 1 
