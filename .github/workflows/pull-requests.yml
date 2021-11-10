@@ -43,7 +43,7 @@ jobs:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         PACKER_LOG: 1 # enable debug log for packer
 
-    - name: Build Custom AMI
+    - name: Build Custom AMI GHactions
       uses: hashicorp/packer-github-actions@master
       with:
         command: build
