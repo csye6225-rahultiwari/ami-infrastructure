@@ -32,7 +32,7 @@ jobs:
         
     # Ref: https://github.com/marketplace/actions/packer-github-actions
     - name: Validate Packer Template
-      uses: hashicorp/packer-github-actions@v0.2.0
+      uses: hashicorp/packer-github-actions@master
       with:
         command: validate
         arguments: "-syntax-only -var-file=vars.json" # only validate syntax
@@ -44,7 +44,7 @@ jobs:
         PACKER_LOG: 1 # enable debug log for packer
 
     - name: Build Custom AMI
-      uses: hashicorp/packer-github-actions@v0.2.0
+      uses: hashicorp/packer-github-actions@master
       with:
         command: build
         arguments: "-var-file=vars.json"
