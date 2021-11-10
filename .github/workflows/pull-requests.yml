@@ -36,11 +36,10 @@ jobs:
       with:
         command: validate
         arguments: "-syntax-only -var-file=vars.json" # only validate syntax
-        target: ami.json
-      env:  
+        target: ami.json 
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        # repo-token: ${{ secrets.GITHUB_TOKEN }}
         PACKER_LOG: 1 # enable debug log for packer
         
     - name: Build Custom AMI GHactions
@@ -49,8 +48,7 @@ jobs:
         command: build
         arguments: "-var-file=vars.json"
         target: ami.json
-      env:  
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        # repo-token: ${{ secrets.GITHUB_TOKEN }}
         PACKER_LOG: 1
