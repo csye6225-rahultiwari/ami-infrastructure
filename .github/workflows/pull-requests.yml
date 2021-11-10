@@ -36,9 +36,10 @@ jobs:
       with:
         command: validate
         arguments: "-syntax-only -var-file=vars.json" # only validate syntax
-        target: ami.json 
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        target: ami.json
+      env:  
+        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         # repo-token: ${{ secrets.GITHUB_TOKEN }}
         PACKER_LOG: 1 # enable debug log for packer
         
@@ -48,7 +49,8 @@ jobs:
         command: build
         arguments: "-var-file=vars.json"
         target: ami.json
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      env:  
+        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         # repo-token: ${{ secrets.GITHUB_TOKEN }}
         PACKER_LOG: 1
