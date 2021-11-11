@@ -21,14 +21,12 @@
             "delete_on_termination": true
           }
         ]
-       
       }
     ],
     "provisioners": [
       {
         "type": "shell",
         "script": "setup.sh"
-        
       }
     ]
   }
