@@ -1,10 +1,8 @@
 #!/bin/bash
 sudo apt-get update -y
 sudo apt-get -y upgrade
-sleep 30
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt install nodejs
-sudo apt-get install libpg-dev curl nginx -y
 sudo apt install ruby-full -y
 sudo apt install wget -y
 sudo apt update -y
