@@ -21,7 +21,6 @@
             "delete_on_termination": true
           }
         ]
-       
       }
     ],
     "provisioners": [
