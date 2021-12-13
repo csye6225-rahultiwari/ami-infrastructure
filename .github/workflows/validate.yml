@@ -1,11 +1,10 @@
----
 name: Packer Build on Pull Requests
 
 # Controls when the action will run.
 # Triggers the workflow on push or pull request events but only for the main branch
 on:
   # Workflow is triggered on pull requests
-  push:
+  pull_request:
     # Workflow will only be triggered for pull requests on "master" branch
     branches: [ main ]
 
@@ -42,15 +41,3 @@ jobs:
         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         # repo-token: ${{ secrets.GITHUB_TOKEN }}
         PACKER_LOG: 1 # enable debug log for packer
-        
-    - name: Build Custom AMI GHactions
-      uses: hashicorp/packer-github-actions@master
-      with:
-        command: build
-        arguments: "-var-file=vars.json"
-        target: ami.json
-      env:  
-        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        # repo-token: ${{ secrets.GITHUB_TOKEN }}
-        PACKER_LOG: 1
