@@ -1,4 +1,4 @@
-name: Packer Build on Pull Requests
+name: Packer validate on Pull Requests
 
 # Controls when the action will run.
 # Triggers the workflow on push or pull request events but only for the main branch
