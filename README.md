@@ -1,10 +1,18 @@
-# ami-infrastructure
-CI/CD Pipeline to Automate AMI building using Terraform, Packer and GitHub Actions
+# infrastructure
+#AWS infrastructure setup
 
-###Two work flows setup using GitHub Actions using YAML scripts
-1) Packer Validate
-2) Packer Build
+**Technology Used:** Terraform, AWS CLI
 
-AMI is built after successful merge into the organization repository.
+##Installing AWS CLI:
+
+https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html
+
+##Configuring AWS CLI:
+
+https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
+
+###Objectives:
+
+We are going to start setting up our AWS infrastructure. This project will focus on setting up our networking resources such as Virtual Private Cloud (VPC), Subnets, Internet Gateway, Route Tables, and Routes.
 
 
